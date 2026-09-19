@@ -6,6 +6,8 @@ on:
     branches: [ "main", "master" ]
   pull_request:
     branches: [ "main", "master" ]
+  release:
+    branches: [ "main", "master" ]
   workflow_dispatch: # Allows manual button clicks in the GitHub UI
     inputs:
       reason:
