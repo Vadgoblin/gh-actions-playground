@@ -1,0 +1,26 @@
+name: Trigger Playground
+
+# Listen to multiple events to see how they behave
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch: # Allows manual button clicks in the GitHub UI
+    inputs:
+      reason:
+        description: 'Why are you running this?'
+        required: false
+        default: 'Just testing'
+        type: string
+
+jobs:
+  inspect-event:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Event Context
+        run: |
+          echo "🚀 Triggered by event: ${{ github.event_name }}"
+          echo "👤 Actor: ${{ github.actor }}"
+          echo "📌 Ref/Branch: ${{ github.ref }}"
+          echo "💬 Manual Reason (if dispatched): ${{ inputs.reason }}"
