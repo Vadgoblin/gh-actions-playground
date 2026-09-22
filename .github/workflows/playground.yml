@@ -26,3 +26,11 @@ jobs:
           echo "👤 Actor: ${{ github.actor }}"
           echo "📌 Ref/Branch: ${{ github.ref }}"
           echo "💬 Manual Reason (if dispatched): ${{ inputs.reason }}"
+
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Move manual
+        run: |
+          pwd
+          ls -l
